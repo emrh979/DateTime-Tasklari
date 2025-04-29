@@ -10,28 +10,33 @@ namespace kurs2
     {
         static void Main(string[] args)
         {
+            TimeSpan ts = new TimeSpan();
             DateTime vaxt = DateTime.Now;
 
-           
-            
-
-            Console.WriteLine(vaxt.ToString(""));
-            Console.WriteLine(vaxt.ToLongDateString());
-            Console.WriteLine(vaxt.ToLongTimeString());
-            Console.WriteLine(vaxt.AddDays(10));
-
-            TimeSpan ts = new TimeSpan();
-            
 
 
-            Console.WriteLine("Dogum tarixim: ");
-            DateTime dogumTarixi = new DateTime(2006, 10, 14);
-            Console.WriteLine(dogumTarixi.ToString("dd.MM.yyyy"));
-            Console.WriteLine("Heftenin gunu: ");
-            Console.WriteLine(dogumTarixi.DayOfWeek);
-            Console.WriteLine("Nece gundu yasiyiram: ");
-            ts = vaxt - dogumTarixi;
-            Console.WriteLine(Math.Floor(ts.TotalDays));
+            /* Console.WriteLine("Dogum tarixim: ");
+             DateTime dogumTarixi = new DateTime(2006, 10, 14);
+             Console.WriteLine(dogumTarixi.ToString("dd.MM.yyyy"));
+             Console.WriteLine("Heftenin gunu: ");
+             Console.WriteLine(dogumTarixi.DayOfWeek);
+             Console.WriteLine("Nece gundu yasiyiram: ");
+             ts = vaxt - dogumTarixi;
+             Console.WriteLine(Math.Floor(ts.TotalDays));*/
+
+            Console.Write("Tarixi qeyd et(yyyy-MM-dd): ");
+            string dt =Console.ReadLine();
+            DateTime daxilEdilen = Convert.ToDateTime(dt);
+            Console.WriteLine(daxilEdilen);
+            if (vaxt > daxilEdilen) 
+            {
+                Console.WriteLine("Hadise olub kecib!!!");
+            }
+            else
+            {
+                ts = daxilEdilen - vaxt;
+                Console.WriteLine(Math.Floor(ts.TotalDays) + " gun qalib");
+            }
 
 
         }
